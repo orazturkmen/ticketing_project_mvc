@@ -55,4 +55,11 @@ public class UserController {
         userService.update(user);
         return "redirect:/user/create";
     }
+
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String user){
+
+        userService.deleteById(user);
+        return "redirect:/user/create";
+    }
 }
