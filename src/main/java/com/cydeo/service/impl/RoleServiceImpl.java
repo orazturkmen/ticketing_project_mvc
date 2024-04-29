@@ -13,7 +13,7 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
 
     @Override
     public RoleDTO findById(Long id) {
-        return super.findBy(id);
+        return super.findById(id);
     }
 
     @Override
