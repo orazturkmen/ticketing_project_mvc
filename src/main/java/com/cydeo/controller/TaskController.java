@@ -46,4 +46,22 @@ public class TaskController {
         taskService.deleteById(id);
         return "redirect:/task/create";
     }
+
+    @GetMapping("/update/{id}")
+    public String editTask(@PathVariable("id") Long id, Model model){
+
+        model.addAttribute("task", taskService.findById(id));
+        model.addAttribute("projects", projectService.findAll());
+        model.addAttribute("employees", userService.findEmployees());
+        model.addAttribute("tasks", taskService.findAll());
+
+        return "/task/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateTask(/*@PathVariable("id") Long id,*/ TaskDTO task){  //if field name(id) matches with object's variables name (Long id in the TaskDTO) does not need @PathVariable. Spring already knows.
+//        task.setId(id);
+        taskService.update(task);
+        return "redirect:/task/create";
+    }
 }
