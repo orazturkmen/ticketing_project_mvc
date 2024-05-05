@@ -42,13 +42,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="project:${projects}">
+                                                <td th:text="${project.projectCode}"></td>
+                                                <td th:text="${project.projectName}"></td>
+                                                <td th:text="${project.startDate + ' to ' + project.endDate}"></td>
+                                                <td th:text="${project.assignedManager.firstName + ' ' + project.assignedManager.lastName}"></td>
+                                                <td th:text="${project.unfinishedTaskCounts + '/' + project.completeTaskCounts}"></td>
+                                                <td th:text="${project.getProjectStatus().value}"></td>
                                                 <td>
                                                     <!--Show this if the project can be completed-->
                                                     <a class="btn btn-info rounded-0" href="#">Complete</a>
