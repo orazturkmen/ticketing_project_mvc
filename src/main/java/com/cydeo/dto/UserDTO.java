@@ -3,7 +3,6 @@ package com.cydeo.dto;
 import com.cydeo.enums.Gender;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -11,6 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
+
     @NotBlank
     @Size(max = 15, min = 2)
     private String firstName;
@@ -24,7 +24,7 @@ public class UserDTO {
     private String userName;
 
     @NotBlank
-    @Pattern(regexp = "(?=.\\d)(?=.[a-z])(?=.*[A-Z]).{4,}")
+    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,}")
     private String passWord;
 
     @NotNull
@@ -59,6 +59,7 @@ public class UserDTO {
         this.confirmPassWord = confirmPassWord;
         checkConfirmPassword();
     }
+
     private void checkConfirmPassword() {
         if (this.passWord == null || this.confirmPassWord == null) {
             return;
@@ -122,4 +123,5 @@ public class UserDTO {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
 }

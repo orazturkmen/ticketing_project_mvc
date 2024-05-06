@@ -2,6 +2,7 @@ package com.cydeo.dto;
 
 import com.cydeo.enums.Status;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,14 +21,14 @@ public class ProjectDTO {
     @NotBlank
     private String projectCode;
 
-    @NotBlank
+    @NotNull
     private UserDTO assignedManager;
 
-    @NotBlank
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
-    @NotBlank
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
